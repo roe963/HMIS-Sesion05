@@ -10,7 +10,7 @@ import ual.hmis.sesion05.ejercicio01.Ejercicio1;
 
 class Ejercicio3Test {
 
-	@CsvSource({ "-1, número erróneo", "1, *****", "7, *******", "13, ************" })
+	@CsvSource({ "-1, número erróneo", "0, *****", "5, *****", "7, *******", "12, ************", "20, ************" })
 	
 	@ParameterizedTest(name = "{index} => Con valor ({0}) sale {1}")
 	void test(String value, String result) {

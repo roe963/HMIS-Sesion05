@@ -1,4 +1,4 @@
-package ual.hmis.sesion05.ejercicio4;
+package ual.hmis.sesion05.ejercicio04;
 
 import java.util.HashSet;
 
