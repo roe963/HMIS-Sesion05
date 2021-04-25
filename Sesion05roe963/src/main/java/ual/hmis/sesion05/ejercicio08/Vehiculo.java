@@ -1,33 +1,56 @@
 package ual.hmis.sesion05.ejercicio08;
 
 public class Vehiculo {
-	private int numeroPasajeros;
-	private int numeroRuedas;
-	private double pesoVehiculo;
+    /**
+     * number of passengers.
+     */
+    private int numeroPasajeros;
+    /**
+     * weight.
+     */
+    private double pesoVehiculo;
 
-	public Vehiculo() {
-		super();
-	}
+    /**
+     * Empty constructor.
+     */
+    public Vehiculo() {
+    }
 
-	public Vehiculo(int numeroPasajeros, double pesoVehiculo) {
-		super();
-		this.numeroPasajeros = numeroPasajeros;
-		this.pesoVehiculo = pesoVehiculo;
-	}
+    /**
+     * @param numberOfPassengers
+     * @param weight
+     */
+    public Vehiculo(final int numberOfPassengers, final double weight) {
+        super();
+        this.numeroPasajeros = numberOfPassengers;
+        this.pesoVehiculo = weight;
+    }
 
-	public int getNumeroPasajeros() {
-		return numeroPasajeros;
-	}
+    /**
+     * @return number of passengers
+     */
+    public int getNumeroPasajeros() {
+        return numeroPasajeros;
+    }
 
-	public void setNumeroPasajeros(int numeroPasajeros) {
-		this.numeroPasajeros = numeroPasajeros;
-	}
+    /**
+     * @param numberOfPassengers
+     */
+    public void setNumeroPasajeros(final int numberOfPassengers) {
+        this.numeroPasajeros = numberOfPassengers;
+    }
 
-	public double getPesoVehiculo() {
-		return pesoVehiculo;
-	}
+    /**
+     * @return weight
+     */
+    public double getPesoVehiculo() {
+        return pesoVehiculo;
+    }
 
-	public void setPesoVehiculo(double pesoVehiculo) {
-		this.pesoVehiculo = pesoVehiculo;
-	}
+    /**
+     * @param weight
+     */
+    public void setPesoVehiculo(final double weight) {
+        this.pesoVehiculo = weight;
+    }
 }

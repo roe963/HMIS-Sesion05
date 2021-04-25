@@ -1,16 +1,24 @@
 package ual.hmis.sesion05.ejercicio01;
 
-public class Ejercicio1 {
-	public int transformar(int x) {
-		int resultado = 0;
-		if (x % 2 == 0) // % Resto de una divisi�n entre enteros (mod)
-			resultado = transformar(x / 2);
-		else if (x % 3 == 0)
-			resultado = transformar(x / 3);
-		else if (x % 5 == 0)
-			resultado = transformar(x / 5);
-		else
-			return x;
-		return resultado;
-	}
+public final class Ejercicio1 {
+    /**
+     * @param x
+     * @return result
+     */
+    public int transformar(final int x) {
+        final int dos = 2;
+        final int tres = 3;
+        final int cinco = 5;
+        int resultado = 0;
+        if (x % dos == 0) {
+            resultado = transformar(x / dos);
+        } else if (x % tres == 0) {
+            resultado = transformar(x / tres);
+        } else if (x % cinco == 0) {
+            resultado = transformar(x / cinco);
+        } else {
+            resultado = x;
+        }
+        return resultado;
+    }
 }

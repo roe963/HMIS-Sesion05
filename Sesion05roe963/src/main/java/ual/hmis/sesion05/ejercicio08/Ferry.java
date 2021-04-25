@@ -3,64 +3,111 @@ package ual.hmis.sesion05.ejercicio08;
 import java.util.ArrayList;
 
 public class Ferry {
-	private int maximoPasajeros;
-	private int maximoVehiculos;
-	private double maximoPesoVehiculos;
+    /**
+     * maximum number of passengers.
+     */
+    private int maximoPasajeros;
 
-	private ArrayList<Vehiculo> vehiculos;
+    /**
+     * maximum number of vehicles.
+     */
+    private int maximoVehiculos;
 
-	public void setMaximoPasajeros(int maximoPasajeros) {
-		this.maximoPasajeros = maximoPasajeros;
-	}
+    /**
+     * maximum weight.
+     */
+    private double maximoPesoVehiculos;
 
-	public void setMaximoPesoVehiculos(double maximoPesoVehiculos) {
-		this.maximoPesoVehiculos = maximoPesoVehiculos;
-	}
-	
-	public void setMaximoVehiculos(int maximoVehiculos) {
-		this.maximoVehiculos = maximoVehiculos;
-	}
+    /**
+     * vehicles.
+     */
+    private ArrayList<Vehiculo> vehiculos;
 
-	public int getNumeroPasajeros() {
-		return vehiculos.stream().mapToInt(v->v.getNumeroPasajeros()).sum();
-	}
+    /**
+     * @param maximumNumberOfPassengers
+     */
+    public void setMaximoPasajeros(final int maximumNumberOfPassengers) {
+        this.maximoPasajeros = maximumNumberOfPassengers;
+    }
 
-	public double getPesoVehiculos() {
-		return vehiculos.stream().mapToDouble(v->v.getPesoVehiculo()).sum();
-	}
+    /**
+     * @param maximumWeight
+     */
+    public void setMaximoPesoVehiculos(final double maximumWeight) {
+        this.maximoPesoVehiculos = maximumWeight;
+    }
 
-	public void setVehiculos(ArrayList<Vehiculo> vehiculos) {
-		this.vehiculos = vehiculos;
-	}
+    /**
+     * @param maximumNumberOfVehicles
+     */
+    public void setMaximoVehiculos(final int maximumNumberOfVehicles) {
+        this.maximoVehiculos = maximumNumberOfVehicles;
+    }
 
-	// Embarca un vehículo añadiéndolo a la lista
-	boolean embarcarVehiculo(Vehiculo v) {
-		if (superadoMaximoVehiculos())
-			return false;
-		if (superadoMaximoPeso(v))
-			return false;
-		if (getNumeroPasajeros() + v.getNumeroPasajeros() > maximoPasajeros)
-			return false;
-		return vehiculos.add(v);
-	}
+    /**
+     * @return number of passengers
+     */
+    public int getNumeroPasajeros() {
+        return vehiculos.stream().mapToInt(v -> v.getNumeroPasajeros()).sum();
+    }
 
-	// devuelve el número total de vehículos embarcados
-	int totalVehiculos() {
-		return vehiculos.size();
-	}
+    /**
+     * @return vehicle's weight
+     */
+    public double getPesoVehiculos() {
+        return vehiculos.stream().mapToDouble(v -> v.getPesoVehiculo()).sum();
+    }
 
-	// verdadero si no hay ningún vehículo
-	boolean vacio() {
-		return totalVehiculos() == 0;
-	}
+    /**
+     * @param listOfVehicles
+     */
+    public void setVehiculos(final ArrayList<Vehiculo> listOfVehicles) {
+        this.vehiculos = listOfVehicles;
+    }
 
-	// verdadero si el número total de los vehículos supera el máximo
-	boolean superadoMaximoVehiculos() {
-		return totalVehiculos()+1 > maximoVehiculos;
-	}
+    /**
+     * @param v
+     * @return if shipment
+     */
+    boolean embarcarVehiculo(final Vehiculo v) {
+        if (superadoMaximoVehiculos()) {
+            return false;
+        }
+        if (superadoMaximoPeso(v)) {
+            return false;
+        }
+        if (getNumeroPasajeros() + v.getNumeroPasajeros() > maximoPasajeros) {
+            return false;
+        }
+        return vehiculos.add(v);
+    }
 
-	// verdadero si el peso total de los vehículos supera el máximo
-	boolean superadoMaximoPeso(Vehiculo v) {
-		return getPesoVehiculos()+v.getPesoVehiculo() > maximoPesoVehiculos;
-	}
+    /**
+     * @return number of vehicles
+     */
+    int totalVehiculos() {
+        return vehiculos.size();
+    }
+
+    /**
+     * @return if empty
+     */
+    boolean vacio() {
+        return totalVehiculos() == 0;
+    }
+
+    /**
+     * @return if maximum number of vehicles passed
+     */
+    boolean superadoMaximoVehiculos() {
+        return totalVehiculos() + 1 > maximoVehiculos;
+    }
+
+    /**
+     * @param v
+     * @return if weight maximum passed
+     */
+    boolean superadoMaximoPeso(final Vehiculo v) {
+        return getPesoVehiculos() + v.getPesoVehiculo() > maximoPesoVehiculos;
+    }
 }
