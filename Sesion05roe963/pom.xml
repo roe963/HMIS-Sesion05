@@ -129,6 +129,11 @@
 							</includes>
 						</fileSet>
 					</scanSet>
+					<skipTestScope>false</skipTestScope>
+					<formats>
+						<format>HTML</format>
+						<format>XML</format>
+					</formats>
 				</configuration>
 				<reportSets>
 					<reportSet>
