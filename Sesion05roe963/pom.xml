@@ -118,17 +118,8 @@
 			<plugin>
 				<groupId>org.owasp</groupId>
 				<artifactId>dependency-check-maven</artifactId>
-				<version>5.3.2</version>
+				<version>6.1.5</version>
 				<configuration>
-					<scanSet>
-						<fileSet>
-							<directory>${project.basedir}</directory>
-							<includes>
-								<include>${project.basedir}/test/**/*.java</include>
-								<include>${project.basedir}/src/**/*.java</include>
-							</includes>
-						</fileSet>
-					</scanSet>
 					<skipTestScope>false</skipTestScope>
 					<formats>
 						<format>HTML</format>
@@ -142,6 +133,25 @@
 						</reports>
 					</reportSet>
 				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+				<artifactId>spotbugs-maven-plugin</artifactId>
+				<version>4.2.3</version>
+				<configuration>
+					<effort>Max</effort>
+					<threshold>Low</threshold>
+					<failOnError>true</failOnError>
+					<includeFilterFile>${session.executionRootDirectory}/spotbugs-security-include.xml</includeFilterFile>
+					<excludeFilterFile>${session.executionRootDirectory}/spotbugs-security-exclude.xml</excludeFilterFile>
+					<plugins>
+						<plugin>
+							<groupId>com.h3xstream.findsecbugs</groupId>
+							<artifactId>findsecbugs-plugin</artifactId>
+							<version>1.10.1</version>
+						</plugin>
+					</plugins>
+				</configuration>
 			</plugin>
 		</plugins>
 	</reporting>
